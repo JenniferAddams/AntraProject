@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200715025742_addReviewAndLinkWithMovie.cs" />
+    <Compile Remove="Migrations\20200715025742_addReviewAndLinkWithMovie.Designer.cs" />
+    <Compile Remove="Migrations\20200715033051_addMovieCast.cs" />
+    <Compile Remove="Migrations\20200715033051_addMovieCast.Designer.cs" />
+    <Compile Remove="Migrations\20200715035947_users.cs" />
+    <Compile Remove="Migrations\20200715035947_users.Designer.cs" />
+    <Compile Remove="Migrations\20200715040258_changereviewtablecolumn.cs" />
+    <Compile Remove="Migrations\20200715040258_changereviewtablecolumn.Designer.cs" />
+    <Compile Remove="Migrations\20200715041157_afterUsersCreated.cs" />
+    <Compile Remove="Migrations\20200715041157_afterUsersCreated.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MovieStore.Core\MovieStore.Core.csproj" />
+  </ItemGroup>
+
+</Project>
