@@ -166,7 +166,19 @@ namespace MovieStore.Infrastructure.Data
             //we dont want to create a column called Rating
             modelBuilder.Ignore(m => m.Rating);
         }
-  
+        //public void Test()
+        //      {
+        //          var 11=new List<int>
+        //      }
+        //protected readonly MovieStoreDbContext _dbContext;
+        //public EfRepository(MovieStoreDbContext dbContext)
+        //{
+        //    _dbContext = dbContext;
+        //}
+        //public virtual async Task<T> GetByIdAsync(int id)
+        //{
+        //    return await _dbContext.Set<T>().FindAsync(id);
+        //}
     }
 }
 

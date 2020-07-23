@@ -7,12 +7,11 @@
   <ItemGroup>
     <Folder Include="Expections\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Models\" />
-    <Folder Include="ServiceInterfaces\" />
-    <Folder Include="RepositoryInterfaces\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="3.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
   </ItemGroup>
 

@@ -5,9 +5,14 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.MVC", "MovieStore.MVC\MovieStore.MVC.csproj", "{A8A4C645-2FDD-4782-B1B8-95320BA44ACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Core", "MovieStore.Core\MovieStore.Core.csproj", "{995ED902-C6F3-4A63-B0D2-EAE72D4E84AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Core", "MovieStore.Core\MovieStore.Core.csproj", "{995ED902-C6F3-4A63-B0D2-EAE72D4E84AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Infrastructure", "MovieStore.Infrastructure\MovieStore.Infrastructure.csproj", "{527E2F0A-4289-4202-8B5C-93EB4F733335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Infrastructure", "MovieStore.Infrastructure\MovieStore.Infrastructure.csproj", "{527E2F0A-4289-4202-8B5C-93EB4F733335}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{214F4D85-A21E-499E-BFA5-AC5DA82F8283}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

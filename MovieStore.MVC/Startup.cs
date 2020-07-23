@@ -7,8 +7,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using MovieStore.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using MovieStore.Core.RepositoryInterfaces;
+using MovieStore.Core.ServiceInterfaces;
+using MovieStore.Infrastructure.Services;
+using MovieStore.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MovieStore.MVC
 {
@@ -25,8 +31,28 @@ namespace MovieStore.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddDbContext<MovieStoreDbContext>(options =>
-                            options.UseSqlServer(Configuration.GetConnectionString("MovieStoreDbConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("MovieStoreDbConnection")));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie
+                            (options =>
+                                {
+                                    options.Cookie.Name = "MovieStoreAuthCookie";
+                                    options.ExpireTimeSpan = TimeSpan.FromHours(2);
+                                    options.LoginPath = "/Account/Login";
+                                }
+                            );
+
+            // DI in ASP.NET Core has 3 types of Lifetimes, Scoped, Singleton, Transient
+            services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICryptoService, CryptoService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,11 +71,9 @@ namespace MovieStore.MVC
             //in ASP.NET Core MiddleWare is a piece of software logic that will be executed...below are auto middleware, orders are importmant because they are the logic.
 
             app.UseStaticFiles();
-
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 //routing: pattern matching technique
